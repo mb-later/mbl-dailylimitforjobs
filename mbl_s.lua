@@ -12,7 +12,6 @@ AddEventHandler("günlüklimit:update" , function (boolean, value, player)
 	if xPlayer == nil then TriggerClientEvent("QBCore:Notify", src, "Bir hata oluştu, hata kodu 503 lütfen ticket atıp ulaşın.") return end
 		if boolean then
 			QBCore.Functions.ExecuteSql(false, "SELECT `gunluklimit` WHERE `citizenid` = '" .. citizenid, function (count)
-                if value + count >= MBL.Maks then  TriggerClientEvent("QBCore:Notify", src, "Günlük limite ulaştın.")return end --Break
 			QBCore.Functions.ExecuteSql(false, "UPDATE `players` SET `gunluklimit` = '" .. count+value .. "' WHERE `citizenid`='" .. citizenid .. "'")
 			end)
 		else
